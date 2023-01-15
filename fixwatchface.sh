@@ -16,7 +16,7 @@ export oX=416
 export iY=384
 export oY=416
 ##   Scaling factors
-xScale=`echo $iY" "$oY | awk '{print $2/$1}'`
+xScale=`echo $iX" "$oX | awk '{print $2/$1}'`
 yScale=`echo $iY" "$oY | awk '{print $2/$1}'`
 
 # Date position
@@ -41,7 +41,7 @@ cp ~/Pictures/preview.png zeppos_watchdrip_timer_wf/assets/falcon/images/
 # Apply the screen calculations to every number that looks like a coordinate write intermetiate tmp file to RAM
 cat zeppos_watchdrip_timer_wf/watchface/gts4mini/styles.js | \
    tr "(" "@" | \
-   awk -F"px@" '{OFS="px@"; if ($0 ~ "px@") {A=split($2,a,")"); if (length(a[1])<4) {if ($0 ~ "x: px@" || $0 ~ "X: px@" || $0 ~ "w: px@") {x=int((a[1]*1.238095238)+.5); $2=x")"a[2]}; if ($0 ~ "y: px@" || $0 ~ "Y: px@" || $0 ~ "h: px@") {y=int((a[1]*1.083333333)+.5); $2=y")"a[2]}}}; print $0 }' | \
+   awk -v xS=$xScale -v yS=$yScale -F"px@" '{OFS="px@"; if ($0 ~ "px@") {A=split($2,a,")"); if (length(a[1])<4) {if ($0 ~ "x: px@" || $0 ~ "X: px@" || $0 ~ "w: px@") {x=int((a[1]*xS)+.5); $2=x")"a[2]}; if ($0 ~ "y: px@" || $0 ~ "Y: px@" || $0 ~ "h: px@") {y=int((a[1]*yS)+.5); $2=y")"a[2]}}}; print $0 }' | \
    tr "@" "(" > /dev/shm/styles.js.tmp
 
 # Auto-fixing doesn't actually work that well because it is so hard to make a general rule so we just edit the rest inline
