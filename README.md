@@ -10,10 +10,12 @@ type:
    
    git clone https://github.com/4RK4N/zeppos_watchdrip_timer_wf
 
-To remove AAPS text and replace with date:
+If you have a Falcon watch type
 
-bash fixwatchface.sh bot
+bash fixwatchface.sh falcon
 
-To keep AAPS text and squish the date in below the clock:
+If you have a GTR3pro type
 
-bash fixwatchface.sh top
+bash fixwatchface.sh gtr-3-pro
+
+If you have a different watch that runs Zepp OS then contact me on Discord- My fee is that you send a photo of how it look on a real watch so that I know it works (because the emulator is meh)
