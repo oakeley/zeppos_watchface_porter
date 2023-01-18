@@ -13,8 +13,8 @@ export iY=384
 
 d="F"
 
-if [[ $1 == "falcon" ]]; then name=falcon; export oX=416; export oY=416; offset=1; dO=101 d="T"; fi
-if [[ $1 == "gtr-3-pro" ]]; then name=gtr-3-pro; export oX=480; export oY=480; offset=0.95; d0=110; d="T"; fi
+if [[ $1 == "falcon" ]]; then name="falcon"; export oX=416; export oY=416; export offset=1; export d0=101; export d="T"; fi
+if [[ $1 == "gtr-3-pro" ]]; then name="gtr-3-pro"; export oX=480; export oY=480; offset=0.95; d0=110; d="T"; fi
 if [[ $d == "F" ]]; then echo "Unsupported watch"; exit; fi
 
 ##   Scaling factors
@@ -60,7 +60,7 @@ cat zeppos_watchdrip_timer_wf/watchface/gts4mini/styles.js | \
    sed "s/const editWidgetH = px(70);/const editWidgetH = +("`echo 70 $yScale | awk '{print int(($1*$2)+.5)}'`");/g" | \
    sed "s/const topLeftX = px(7);/const topLeftX = +("`echo 15 $xScale | awk '{print int(($1*$2)+.5)}'`");/g" | \
    sed "s/const topLeftY = px(110);/const topLeftY = +("`echo 110 $yScale | awk '{print int(($1*$2)+.5)}'`");/g" | \
-   sed "s/const topRightX = px(239);/const topRightX = +("`echo 219 $xScale | awk '{print int(($1*$2)+.5)}'`");/g" | \
+   sed "s/const topRightX = px(239);/const topRightX = +("`echo 229 $xScale | awk '{print int(($1*$2)+.5)}'`");/g" | \
    sed "s/const topRightY = px(110);/const topRightY = +("`echo 100 $xScale | awk '{print int(($1*$2)+.5)}'`");/g" | \
    sed "s/const bottomLeftX = px(7);/const bottomLeftX = +("`echo 15 $xScale | awk '{print int(($1*$2)+.5)}'`");/g" | \
    sed "s/const bottomLeftY = px(195);/const bottomLeftY = +("`echo 195 $yScale | awk '{print int(($1*$2)+.5)}'`");/g"| \
