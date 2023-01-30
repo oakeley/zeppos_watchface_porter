@@ -1,5 +1,5 @@
 # zeppos_watchface_porter
-Automated script to port ARKRN gts4mini watchfaces to the Amazfit Falcon
+Automated script to port ARKRN gts4mini watchfaces to the Amazfit Falcon, GTR3-pro and GTR4
 It takes the latest version of the code from <a href="https://github.com/4RK4N/zeppos_watchdrip_timer_wf">4RK4N</a> and transforms to make a Falcon version.
 
 # Instructions:
