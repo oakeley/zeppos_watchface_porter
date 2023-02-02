@@ -6,7 +6,7 @@
 ##   bash ./bulkwatchface.sh
 
 # Set date
-printf -v date '%(%Y%m%d-%H%M%S)T\n' -1
+printf -v date '%(%Y%m%d-%H%M%S)T' -1
 
 # Make some folders
 mkdir "$date"
