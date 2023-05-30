@@ -17,5 +17,6 @@ git clone https://github.com/4RK4N/zeppos_watchdrip_timer_wf
 bash ../fixwatchface.sh falcon
 bash ../fixwatchface.sh gtr-3-pro
 bash ../fixwatchface.sh gtr4
-
-
+bash ../fixwatchface.sh band7
+cd zeppos_watchdrip_timer_wf/
+# Now run zeus preview
