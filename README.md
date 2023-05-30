@@ -3,6 +3,9 @@ Automated script to port ARKRN gts4mini watchfaces to the Amazfit Falcon, GTR3-p
 It takes the latest version of the code from <a href="https://github.com/4RK4N/zeppos_watchdrip_timer_wf">4RK4N</a> and transforms to make a Falcon version.
 
 # Instructions:
+Unzip the Pictures.zip file into ~/Pictures
+Run "bash bulkwatchface.sh" to patch all of the existing watchfaces to the latest version based on the gts4mini code
+
 type:
    mkdir folder
    
@@ -18,4 +21,4 @@ If you have a GTR3pro type
 
 bash fixwatchface.sh gtr-3-pro
 
-If you have a different watch that runs Zepp OS then contact me on Discord- My fee is that you send a photo of how it look on a real watch so that I know it works (because the emulator is meh)
+If you have a different watch that runs Zepp OS then contact me on Discord- My fee is that you send a photo of how it look on a real watch so that I know it works (because the emulator is meh). Alternatively look at how I did it for the others (you basically just need the screen size and a background png)
