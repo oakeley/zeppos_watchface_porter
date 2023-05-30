@@ -16,6 +16,7 @@ d="F"
 if [[ $1 == "falcon" ]]; then name="falcon"; export oX=416; export oY=416; export offset=1; export d0=101; export d="T"; fi
 if [[ $1 == "gtr-3-pro" ]]; then name="gtr-3-pro"; export oX=480; export oY=480; offset=0.95; d0=110; d="T"; fi
 if [[ $1 == "gtr4" ]]; then name="gtr4"; export oX=466; export oY=466; offset=0.95; d0=110; d="T"; fi
+if [[ $1 == "band7" ]]; then name="band7"; export oX=194; export oY=368; offset=0.95; d0=110; d="T"; fi
 if [[ $d == "F" ]]; then echo "Unsupported watch"; exit; fi
 
 ##   Scaling factors
@@ -37,12 +38,12 @@ rsync -vaz zeppos_watchdrip_timer_wf/watchface/gts4mini/ zeppos_watchdrip_timer_
 # Make a Falcon low power background
 cp ~/Pictures/bg-"$name".png zeppos_watchdrip_timer_wf/assets/$name/images/bg/bg.png
 # Make a low power heart icon
-cp ~/Pictures/heart.png zeppos_watchdrip_timer_wf/assets/$name/images/widgets/
+#cp ~/Pictures/heart.png zeppos_watchdrip_timer_wf/assets/$name/images/widgets/
 # Fix the glucose warning icons
 echo `ls ~/Pictures/bg?*.png | grep -v "-"` | awk -v name=$name '{for (i=1; i<=NF; i+=1) {system("cp "$i" zeppos_watchdrip_timer_wf/assets/"name"/watchdrip/")}}'
 # Fix the preview image
 cp ~/Pictures/preview.png zeppos_watchdrip_timer_wf/assets/$name/images/
-
+rsync -va /home/edward/20230215-205357/zeppos_watchdrip_timer_wf/assets/falcon/images/bigNumAOD/* zeppos_watchdrip_timer_wf/assets/$name/images/bigNumAOD/
 # Auto-fixing doesn't actually work that well because it is so hard to make a general rule so we just edit the rest inline and write intermetiate tmp file to RAM
 cat zeppos_watchdrip_timer_wf/watchface/gts4mini/styles.js | \
    sed "s/hour_startX: px(84),/hour_startX: +("`echo $d0 $xScale | awk '{print int(($1*$2)+.5)}'`"),/g" | \
