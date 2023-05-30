@@ -43,7 +43,7 @@ cp ~/Pictures/bg-"$name".png zeppos_watchdrip_timer_wf/assets/$name/images/bg/bg
 echo `ls ~/Pictures/bg?*.png | grep -v "-"` | awk -v name=$name '{for (i=1; i<=NF; i+=1) {system("cp "$i" zeppos_watchdrip_timer_wf/assets/"name"/watchdrip/")}}'
 # Fix the preview image
 cp ~/Pictures/preview.png zeppos_watchdrip_timer_wf/assets/$name/images/
-rsync -va /home/edward/20230215-205357/zeppos_watchdrip_timer_wf/assets/falcon/images/bigNumAOD/* zeppos_watchdrip_timer_wf/assets/$name/images/bigNumAOD/
+rsync -va ~/bigNumAOD/* zeppos_watchdrip_timer_wf/assets/$name/images/bigNumAOD/
 # Auto-fixing doesn't actually work that well because it is so hard to make a general rule so we just edit the rest inline and write intermetiate tmp file to RAM
 cat zeppos_watchdrip_timer_wf/watchface/gts4mini/styles.js | \
    sed "s/hour_startX: px(84),/hour_startX: +("`echo $d0 $xScale | awk '{print int(($1*$2)+.5)}'`"),/g" | \
